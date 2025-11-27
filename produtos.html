@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produtos - Tecelagem Fios De Ouro</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root{--bg:#ffffff;--accent:#1e3a8a;--gold:#d4af37;--muted:#f3f6ff;--text:#1e3a8a}
+    body{margin:0;font-family:Arial, Helvetica, sans-serif;color:var(--text);background:var(--bg)}
+    .site-header{display:flex;align-items:center;gap:18px;padding:20px;border-bottom:1px solid #eef2ff}
+    .logo-side{flex:0 0 100px;display:flex;align-items:center;justify-content:center}
+    .title-area{text-align:center}
+    .title-area h1{margin:0;font-size:22px}
+    .title-area .gold{color:var(--gold);font-weight:700}
+    .main-nav{margin-top:8px;display:flex;gap:8px;justify-content:center}
+    .nav-btn{padding:6px 10px;text-decoration:none;border-radius:8px;color:var(--accent);border:2px solid transparent;font-weight:600}
+    .produtos-section{padding:40px; max-width:900px; margin:auto;}
+    .produtos-section h2{font-size:28px; color:var(--accent); text-align:center; margin-bottom:30px;}
+    .produto{display:flex; align-items:center; gap:20px; margin-bottom:30px;}
+    .produto img{width:64px; height:64px;}
+    .produto div h3{margin:0; font-size:22px; color:var(--accent);}
+    .produto div p{margin:5px 0 0; font-size:16px; color:#000;}
+    .site-footer{text-align:center;padding:12px;border-top:1px solid #eef2ff;color:#55606b;}
+    @media (max-width:600px){.produto{flex-direction:column;text-align:center}.logo-side{display:none}}
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo-side">
+      <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="86" height="86">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0%" stop-color="#1e3a8a" />
+            <stop offset="100%" stop-color="#3b6bd6" />
+          </linearGradient>
+        </defs>
+        <rect x="6" y="6" width="188" height="188" rx="18" fill="#fff" stroke="#d4af37" stroke-width="6" />
+        <g transform="translate(30,30) scale(1.1)">
+          <rect x="0" y="0" width="140" height="140" rx="12" fill="url(#g1)" opacity="0.95" />
+          <g stroke="#d4af37" stroke-width="6" stroke-linecap="round">
+            <path d="M18 18 L122 122" />
+            <path d="M122 18 L18 122" />
+            <path d="M70 10 L70 130" stroke-opacity="0.8" />
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="title-area">
+      <h1>Tecelagem Fios De <span class="gold">Ouro</span></h1>
+      <nav class="main-nav">
+        <a class="nav-btn" href="index.html">Home</a>
+        <a class="nav-btn" href="produtos.html">Produtos</a>
+        <a class="nav-btn" href="sobre.html">Sobre</a>
+        <a class="nav-btn" href="#">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="produtos-section">
+      <h2>Nossos Produtos</h2>
+
+      <!-- Produto 1 -->
+      <div class="produto">
+        <img src="data:image/svg+xml;base64,..." alt="Tecidos com Nanotecnologia"/>
+        <div>
+          <h3>Tecidos com Nanotecnologia</h3>
+          <p>Desenvolvidos para alta performance: repelência à água, resistência a odores, secagem rápida e fibras inteligentes que reagem ao ambiente.</p>
+        </div>
+      </div>
+
+      <!-- Produto 2 -->
+      <div class="produto">
+        <img src="data:image/svg+xml;base64,..." alt="Tecido Flame"/>
+        <div>
+          <h3>Tecido Flame</h3>
+          <p>Famoso pela textura irregular e elegante, muito usado em camisetas premium e peças casuais com toque macio e sofisticado.</p>
+        </div>
+      </div>
+
+      <!-- Produto 3 -->
+      <div class="produto">
+        <img src="data:image/svg+xml;base64,..." alt="Tecidos Esportivos"/>
+        <div>
+          <h3>Tecidos Esportivos</h3>
+          <p>Respiráveis, elásticos, duráveis e projetados para conforto extremo durante atividades físicas de alta intensidade.</p>
+        </div>
+      </div>
+
+      <!-- Produto 4 -->
+      <div class="produto">
+        <img src="data:image/svg+xml;base64,..." alt="Outros Tecidos"/>
+        <div>
+          <h3>Outros Tecidos</h3>
+          <p>Trabalhamos também com malha fria, algodão penteado, moletom, jacquard, ribana, viscose e diversas composições especiais.</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Tecelagem Fios De Ouro — Preview</p>
+  </footer>
+
+</body>
+</html>
 

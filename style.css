@@ -30,7 +30,9 @@ header {
     text-align: center;
 }
 
-.item svg {
+.item img {
+    width: 100%;
+    border-radius: 10px;
     margin-bottom: 10px;
 }
 

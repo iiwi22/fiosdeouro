@@ -3,151 +3,399 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tecelagem Fios De Ouro - Preview</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <title>Tecelagem Fios De Ouro</title>
+
   <style>
-    :root{--bg:#ffffff;--accent:#1e3a8a;--gold:#d4af37;--muted:#f3f6ff;--text:#1e3a8a}
-    body{margin:0;font-family:Arial, Helvetica, sans-serif;color:var(--text);background:var(--bg);scroll-behavior:smooth;}
-    .site-header{display:flex;align-items:center;gap:18px;padding:20px;border-bottom:1px solid #eef2ff;position:sticky;top:0;background:#fff;z-index:1000;}
-    .logo-side{flex:0 0 100px;display:flex;align-items:center;justify-content:center}
-    .title-area{text-align:center}
-    .title-area h1{margin:0;font-size:26px}
-    .title-area .gold{color:var(--gold);font-weight:700}
-    .main-nav{margin-top:8px;display:flex;gap:8px;justify-content:center}
-    .nav-btn{padding:8px 14px;text-decoration:none;border-radius:8px;color:var(--accent);border:2px solid transparent;font-weight:600;cursor:pointer;font-size:16px}
-    .home-intro{padding:60px 30px}
-    .hero{max-width:900px;margin:0 auto;display:flex;gap:30px;align-items:center}
-    .hero-art{flex:0 0 300px}
-    .hero-text h2{color:var(--accent);margin:0 0 12px;font-size:32px}
-    .hero-text p{font-size:18px;line-height:1.6}
-    .produtos{padding:60px 40px; max-width:1000px; margin:auto;}
-    .produtos h2{text-align:center; font-size:36px; margin-bottom:50px;}
-    .produto-item{display:flex;align-items:center;gap:30px;margin-bottom:50px}
-    .produto-item img{width:100px; height:100px;}
-    .produto-item div h3{margin:0;font-size:26px;color:#1e3a8a;}
-    .produto-item div p{margin:8px 0 0;font-size:18px;line-height:1.6;}
-    .site-footer{text-align:center;padding:20px;border-top:1px solid #eef2ff;color:#55606b;font-size:16px}
-    @media (max-width:600px){
-      .hero{flex-direction:column;text-align:center}.logo-side{display:none}
-      .produto-item{flex-direction:column;align-items:center;text-align:center;gap:20px}
-      .produto-item img{width:120px; height:120px;}
+    :root{
+      --bg:#ffffff;
+      --accent:#1e3a8a;
+      --gold:#d4af37;
+      --text:#1e3a8a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      scroll-behavior:smooth;
+    }
+
+    /* LOGIN TELA CHEIA */
+    #login-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.85);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+    }
+    .login-card{
+      background:#fff;
+      width:90%;
+      max-width:420px;
+      padding:30px;
+      border-radius:14px;
+      text-align:center;
+      box-shadow:0 12px 30px rgba(0,0,0,0.4);
+    }
+    .login-card input{
+      width:100%;
+      padding:12px;
+      margin-bottom:14px;
+      border:2px solid #dfe3ff;
+      border-radius:8px;
+      font-size:16px;
+    }
+    .login-card button{
+      width:100%;
+      padding:12px;
+      background:var(--accent);
+      color:white;
+      border:none;
+      border-radius:8px;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    /* HEADER */
+    .site-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:20px 30px;
+      border-bottom:1px solid #eef2ff;
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .brand h1{
+      margin:0;
+      font-size:24px;
+      font-weight:800;
+      color:var(--accent);
+    }
+    .brand h1 .gold{color:var(--gold)}
+
+    .nav-btn{
+      padding:10px 14px;
+      text-decoration:none;
+      border-radius:8px;
+      border:2px solid transparent;
+      color:var(--accent);
+      font-weight:bold;
+      font-size:15px;
+    }
+    .nav-btn:hover{
+      background:var(--accent);
+      color:#fff;
+    }
+
+    /* SECTIONS */
+    section{
+      padding:90px 20px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    /* HERO */
+    .hero{
+      display:flex;
+      gap:30px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .hero-text h2{
+      margin:0 0 20px;
+      font-size:36px;
+      color:var(--accent);
+    }
+    .hero-text p{
+      font-size:19px;
+      line-height:1.6;
+    }
+
+    /* PRODUTOS */
+    .produtos h2{
+      text-align:center;
+      font-size:36px;
+      margin-bottom:40px;
+      color:var(--accent);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:22px;
+    }
+    .card{
+      background:white;
+      padding:20px;
+      border-radius:14px;
+      border:1px solid #dfe3ff;
+      text-align:center;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    }
+    .card img{
+      width:64px;
+      height:64px;
+      margin-bottom:10px;
+    }
+    .card h3{
+      margin:0;
+      font-size:22px;
+      color:var(--accent);
+    }
+    .card p{
+      margin-top:10px;
+      line-height:1.6;
+      font-size:16px;
+      color:#0f172a;
+    }
+
+    /* AVALIAÇÕES */
+    .review{
+      display:flex;
+      gap:14px;
+      background:#f4f6ff;
+      padding:16px;
+      border-radius:10px;
+      border:1px solid #dfe3ff;
+      margin-bottom:20px;
+    }
+    .avatar{
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      background:#dfe3ff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--accent);
+      font-size:28px;
+    }
+    .review p{
+      margin:4px 0 0;
+      font-size:16px;
+      color:#0f172a;
+    }
+
+    /* CONTATO */
+    form input,form textarea{
+      padding:12px;
+      border:2px solid #dfe3ff;
+      border-radius:8px;
+      font-size:16px;
+      width:100%;
+    }
+    form textarea{
+      min-height:140px;
+      resize:none;
+    }
+    .btn-send{
+      padding:14px;
+      background:var(--accent);
+      color:white;
+      font-weight:bold;
+      border:none;
+      border-radius:8px;
+      font-size:18px;
+      cursor:pointer;
+    }
+
+    footer{
+      margin-top:50px;
+      padding:20px;
+      text-align:center;
+      border-top:1px solid #dfe3ff;
+      color:#475569;
     }
   </style>
+
+  <script>
+    function entrarSite(){
+      document.getElementById("login-overlay").style.display="none";
+    }
+  </script>
+
 </head>
 <body>
-  <header class="site-header">
-    <div class="logo-side">
-      <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="86" height="86">
-        <defs>
-          <linearGradient id="g1" x1="0" x2="1">
-            <stop offset="0%" stop-color="#1e3a8a" />
-            <stop offset="100%" stop-color="#3b6bd6" />
-          </linearGradient>
-        </defs>
-        <rect x="6" y="6" width="188" height="188" rx="18" fill="#fff" stroke="#d4af37" stroke-width="6" />
-        <g transform="translate(30,30) scale(1.1)">
-          <rect x="0" y="0" width="140" height="140" rx="12" fill="url(#g1)" opacity="0.95" />
-          <g stroke="#d4af37" stroke-width="6" stroke-linecap="round">
-            <path d="M18 18 L122 122" />
-            <path d="M122 18 L18 122" />
-            <path d="M70 10 L70 130" stroke-opacity="0.8" />
-          </g>
-        </g>
+
+
+<!-- LOGIN PRIMEIRO -->
+<div id="login-overlay">
+  <div class="login-card">
+
+    <!-- LOGO SVG 64PX -->
+    <svg width="64" height="64" viewBox="0 0 64 64">
+      <rect x="2" y="2" width="60" height="60" rx="12" fill="#1e3a8a" stroke="#d4af37" stroke-width="4"/>
+      <path d="M18 18 L46 46" stroke="#d4af37" stroke-width="4" stroke-linecap="round"/>
+      <path d="M46 18 L18 46" stroke="#d4af37" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+
+    <h2>Bem-vindo</h2>
+    <p>Faça login para acessar o site</p>
+
+    <input type="email" placeholder="Seu e-mail">
+    <input type="password" placeholder="Senha">
+    <button onclick="entrarSite()">Entrar</button>
+  </div>
+</div>
+
+
+
+<!-- HEADER DO SITE -->
+<header class="site-header">
+  <div class="brand">
+    <svg class="logo-64-inline" width="64" height="64" viewBox="0 0 64 64">
+      <rect x="2" y="2" width="60" height="60" rx="12" fill="#1e3a8a" stroke="#d4af37" stroke-width="4"/>
+      <path d="M18 18 L46 46" stroke="#d4af37" stroke-width="4" stroke-linecap="round"/>
+      <path d="M46 18 L18 46" stroke="#d4af37" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+
+    <h1>Tecelagem Fios de <span class="gold">Ouro</span></h1>
+  </div>
+
+  <nav>
+    <a class="nav-btn" href="#home">Home</a>
+    <a class="nav-btn" href="#produtos">Produtos</a>
+    <a class="nav-btn" href="#sobre">Sobre</a>
+    <a class="nav-btn" href="#avaliacoes">Avaliações</a>
+    <a class="nav-btn" href="#contato">Contato</a>
+  </nav>
+</header>
+
+
+
+<!-- HOME -->
+<section id="home">
+  <div class="hero">
+    <div class="hero-text">
+      <h2>Excelência em Tecidos Premium</h2>
+      <p>Inovação, tradição e tecnologia se unem para criar tecidos únicos.</p>
+      <p>Nossos produtos vestem marcas de alto padrão e fornecem desempenho superior.</p>
+    </div>
+
+    <svg class="hero-art" width="360" height="240">
+      <rect width="100%" height="100%" fill="#f3f6ff" stroke="#dfe3ff" rx="14"/>
+      <path d="M40 140 Q120 200 200 120 T320 140" fill="none" stroke="#d4af37" stroke-width="6"/>
+    </svg>
+  </div>
+</section>
+
+
+
+<!-- PRODUTOS -->
+<section id="produtos" class="produtos">
+  <h2>Nossos Produtos</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <svg width="64" height="64">
+        <circle cx="32" cy="32" r="28" fill="#1e3a8a" stroke="#d4af37" stroke-width="4"/>
       </svg>
+      <h3>Nanotecnologia</h3>
+      <p>Performance, resistência e tecnologia aplicada fibra por fibra.</p>
     </div>
-    <div class="title-area">
-      <h1>Tecelagem Fios De <span class="gold">Ouro</span></h1>
-      <nav class="main-nav">
-        <a class="nav-btn" href="#home">Home</a>
-        <a class="nav-btn" href="#produtos">Produtos</a>
-        <a class="nav-btn" href="#sobre">Sobre</a>
-        <a class="nav-btn" href="#contato">Contato</a>
-      </nav>
+
+    <div class="card">
+      <svg width="64" height="64">
+        <rect x="6" y="6" width="52" height="52" rx="12" fill="#1e3a8a" stroke="#d4af37" stroke-width="4"/>
+      </svg>
+      <h3>Flame Premium</h3>
+      <p>Textura moderna, toque suave e visual estiloso.</p>
     </div>
-  </header>
 
-  <main>
-    <!-- HOME -->
-    <section id="home" class="home-intro">
-      <div class="hero">
-        <div class="hero-art">
-          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="300" height="180">
-            <rect width="100%" height="100%" fill="#ffffff"/>
-            <g transform="translate(20,20)">
-              <rect x="0" y="0" width="260" height="160" rx="12" fill="#f7f9ff" stroke="#dfe8ff" />
-              <g transform="translate(20,20)" fill="#1e3a8a">
-                <rect x="0" y="0" width="220" height="12" rx="6" />
-                <rect x="0" y="20" width="220" height="8" rx="4" />
-                <rect x="0" y="36" width="220" height="8" rx="4" />
-              </g>
-              <g transform="translate(30,90)">
-                <path d="M0 0 Q50 30 100 0 T200 0" fill="none" stroke="#d4af37" stroke-width="6" stroke-linecap="round"/>
-              </g>
-            </g>
-          </svg>
-        </div>
+    <div class="card">
+      <svg width="64" height="64">
+        <polygon points="32,4 58,58 6,58" fill="#1e3a8a" stroke="#d4af37" stroke-width="4"/>
+      </svg>
+      <h3>Esportivos</h3>
+      <p>Flexíveis, ventilados e perfeitos para performance máxima.</p>
+    </div>
 
-        <div class="hero-text">
-          <h2>Bem-vindo à Tecelagem Fios De Ouro</h2>
-          <p>Unimos tradição e tecnologia para criar tecidos que contam histórias. Explore nosso portfólio — tecidos técnicos, esportivos e soluções têxteis com nanotecnologia. Cada peça é desenvolvida para oferecer máxima qualidade, conforto e durabilidade, atendendo a clientes exigentes no mercado de moda, esportivo e industrial.</p>
-        </div>
-      </div>
-    </section>
+    <div class="card">
+      <svg width="64" height="64">
+        <path d="M10 20 L54 20 M10 32 L54 32 M10 44 L54 44"
+        stroke="#1e3a8a" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <h3>Linhas Diversas</h3>
+      <p>Moletom, viscose, algodão e composições especiais.</p>
+    </div>
 
-    <!-- PRODUTOS -->
-    <section id="produtos" class="produtos">
-      <h2>Nossos Produtos</h2>
+  </div>
+</section>
 
-      <div class="produto-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGNpcmNsZSBjeD0iNjQiIGN5PSI2NCIgcj0iNTYiIGZpbGw9IiNkY2U1ZmYiIHN0cm9rZT0iIzFlM2E4QSIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPGNpcmNsZSBjeD0iNjQiIGN5PSIzMCIgcj0iMTAiIGZpbGw9IiMxZTNBOEEiLz4KICA8Y2lyY2xlIGN4PSIyOCIgeT0iNzAiIHI9IjgiIGZpbGw9IiMxZTNBOEEiLz4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSI3MCIgcj0iOCIgc3RpbGw9IiMxZTNBOEEiLz4KICA8cGF0aCBkPSJNMjggNzBMNjQgMzBMMTAwIDcwIiBzdHJva2U9IiMxZTNBOEEiIHN0cm9rZS13aWR0aD0iNiIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4=" />
-        <div>
-          <h3>Tecidos com Nanotecnologia</h3>
-          <p>Desenvolvidos para alta performance: repelência à água, resistência a odores, secagem rápida e fibras inteligentes que reagem ao ambiente. Ideais para moda esportiva, uniformes técnicos e vestuário outdoor.</p>
-        </div>
-      </div>
 
-      <div class="produto-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMCIgd2lkdGg9IjEwMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgZmlsbD0iIzFlM2E4YSI+CiAgICA8cGF0aCBkPSJNNjQgMTEwYy0yMCAwLTM2LTE2LTM2LTM2IDAtMTggMTQtMzMgMjktNDkgMTQgMTYgMjkgMzEgMjkgNDkgMCAyMC0xNiAzNi0zNiAzNnoiIGZpbGw9IiNkY2U1ZmYiIHN0cm9rZT0iIzFlM2E4QSIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPC9nPjwvc3ZnPg==" />
-        <div>
-          <h3>Tecido Flame</h3>
-          <p>Famoso pela textura irregular e elegante, muito usado em camisetas premium e peças casuais com toque macio e sofisticado. Excelente para design moderno e coleções de moda criativa.</p>
-        </div>
-      </div>
 
-      <div class="produto-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMCIgd2lkdGg9IjEwMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIHJ4PSIyNCIgZmlsbD0iI2RjZTVmZiIgc3Ryb2tlPSIjMWUzYThhIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8cGF0aCBkPSJNNDggODhMNTYgNDBMNzIgODgiIHN0cm9rZT0iIzFlM2E4YSIgc3Ryb2tlLXdpZHRoPSI4IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSI1NiIgY3k9IjQwIiByPSIxNCIgZmlsbD0iIzFlM2E4YSIvPgogIDxjaXJjbGUgY3g9IjcyIiBjeT0iODgiIHI9IjE0IiBmaWxsPSIjMWUzYThhIi8+Cjwvc3ZnPg==" />
-        <div>
-          <h3>Tecidos Esportivos</h3>
-          <p>Respiráveis, elásticos, duráveis e projetados para conforto extremo durante atividades físicas de alta intensidade. Ideais para roupas de treino, academias e esportes profissionais.</p>
-        </div>
-      </div>
+<!-- SOBRE -->
+<section id="sobre">
+  <h2 style="text-align:center;font-size:34px;color:var(--accent)">Sobre Nós</h2>
+  <p style="text-align:center;font-size:19px;line-height:1.7;margin-top:20px">
+    Fundada em 2025 por <b>Josué Archetti</b>, a Tecelagem Fios de Ouro nasceu com a missão de elevar a indústria têxtil brasileira.
+    Produzimos tecidos resistentes, sofisticados e criados com tecnologia avançada.
+  </p>
+</section>
 
-      <div class="produto-item">
-        <img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwMCIgd2lkdGg9IjEwMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3QgeD0iMTYiIHk9IjE2IiB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHJ4PSIxNiIgZmlsbD0iI2Y3ZjlmZiIgc3Ryb2tlPSIjMWUzYThhIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8bGluZSB4MT0iMTYiIHkxPSIzMiIgeDI9IjExMiIgeTI9IjMyIiBzdHJva2U9IiMxZTNBOEEiIHN0cm9rZS13aWR0aD0iNiIvPgogIDxsaW5lIHgxPSIxNiIgeTE9IjYwIiB4Mj0iMTEyIiB5Mj0iNjAiIHN0cm9rZT0iIzFlM2E4YSIgc3Ryb2tlLXdpZHRoPSI2Ii8+Cjwvc3ZnPg==" />
-        <div>
-          <h3>Outros Tecidos</h3>
-          <p>Trabalhamos também com malha fria, algodão penteado, moletom, jacquard, ribana, viscose e diversas composições especiais. Sempre buscando inovação, conforto e sustentabilidade em cada peça.</p>
-        </div>
-      </div>
-    </section>
 
-    <!-- SOBRE -->
-    <section id="sobre" style="padding:60px 40px; max-width:900px; margin:auto;">
-      <h2 style="text-align:center; color:#1e3a8a; font-size:32px; margin-bottom:30px;">Sobre Nós</h2>
-      <p style="text-align:center; font-size:18px; line-height:1.6;">A Tecelagem Fios De Ouro une tradição e tecnologia para oferecer produtos têxteis de alta qualidade, desenvolvendo soluções inovadoras para o mercado de moda, esportivo e técnico. Com expertise em nanotecnologia e design, buscamos sempre a excelência em cada produto, garantindo durabilidade, conforto e estilo para nossos clientes.</p>
-    </section>
 
-    <!-- CONTATO -->
-    <section id="contato" style="padding:60px 40px; max-width:900px; margin:auto;">
-      <h2 style="text-align:center; color:#1e3a8a; font-size:32px; margin-bottom:30px;">Contato</h2>
-      <p style="text-align:center; font-size:18px; line-height:1.6;">Entre em contato pelo e-mail <b>contato@fiosdeouro.com</b> ou telefone <b>(00) 1234-5678</b>. Estamos à disposição para tirar dúvidas, receber sugestões e atender pedidos especiais. Nossa equipe garante um atendimento rápido e personalizado.</p>
-    </section>
-  </main>
+<!-- AVALIAÇÕES -->
+<section id="avaliacoes">
+  <h2 style="text-align:center;font-size:34px;color:var(--accent)">Avaliações</h2>
 
-  <footer class="site-footer">
-    <p>© 2025 Tecelagem Fios De Ouro — Preview</p>
-  </footer>
+  <div class="review">
+    <div class="avatar">👨</div>
+    <div>
+      <h4>Marcos Oliveira</h4>
+      <p>"Os melhores tecidos que já trabalhei. Qualidade impecável."</p>
+    </div>
+  </div>
+
+  <div class="review">
+    <div class="avatar">👩</div>
+    <div>
+      <h4>Fernanda Duarte</h4>
+      <p>"Atendimento rápido e tecidos maravilhosos. Nota 10!"</p>
+    </div>
+  </div>
+
+  <div class="review">
+    <div class="avatar">👨</div>
+    <div>
+      <h4>Eduardo Ramos</h4>
+      <p>"Transformaram a qualidade dos produtos da minha marca."</p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- CONTATO -->
+<section id="contato">
+  <h2 style="text-align:center;font-size:34px;color:var(--accent)">Contato</h2>
+
+  <form>
+    <input type="text" placeholder="Seu nome">
+    <input type="email" placeholder="Seu e-mail">
+    <textarea placeholder="Digite sua mensagem"></textarea>
+    <button class="btn-send">Enviar Mensagem</button>
+  </form>
+</section>
+
+
+
+<footer>
+  © 2025 Tecelagem Fios de Ouro — Todos os direitos reservados.
+</footer>
+
 </body>
 </html>
 

@@ -7,40 +7,37 @@ body {
 header {
     background: #9b6b43;
     color: white;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
-}
-
-.banner img {
-    width: 100%;
-    display: block;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .produtos {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 30px;
+    gap: 25px;
+    padding: 40px;
+    flex-wrap: wrap;
 }
 
 .item {
     background: white;
-    border-radius: 10px;
-    padding: 15px;
-    width: 250px;
+    padding: 20px;
+    width: 260px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #0003;
     text-align: center;
-    box-shadow: 0 0 10px #0003;
 }
 
-.item img {
-    width: 100%;
-    border-radius: 8px;
+.item svg {
+    margin-bottom: 10px;
 }
 
 footer {
-    text-align: center;
-    padding: 10px;
     background: #9b6b43;
     color: white;
+    text-align: center;
+    padding: 15px;
     margin-top: 20px;
 }

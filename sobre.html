@@ -6,85 +6,19 @@
   <title>Sobre - Tecelagem Fios De Ouro</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    :root{
-      --bg:#1e3a8a;
-      --accent:#f3f6ff;
-      --gold:#d4af37;
-      --text:#ffffff;
-    }
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:var(--bg);
-      color:var(--text);
-    }
-    .site-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      padding:20px;
-      border-bottom:1px solid #dfe8ff;
-    }
-    .logo-side{
-      flex:0 0 100px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .title-area{text-align:center;}
-    .title-area h1{margin:0;font-size:22px;}
-    .title-area .gold{color:var(--gold); font-weight:700;}
-    .main-nav{
-      margin-top:8px;
-      display:flex;
-      gap:8px;
-      justify-content:center;
-    }
-    .nav-btn{
-      padding:6px 10px;
-      text-decoration:none;
-      border-radius:8px;
-      color:var(--accent);
-      border:2px solid transparent;
-      font-weight:600;
-    }
-    .sobre-intro{
-      max-width:900px;
-      margin:40px auto;
-      padding:20px;
-      background:rgba(255,255,255,0.05);
-      border-radius:16px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.2);
-    }
-    .sobre-intro h2{
-      font-size:28px;
-      color:var(--gold);
-      text-align:center;
-      margin-bottom:20px;
-    }
-    .sobre-intro p{
-      font-size:18px;
-      line-height:1.6;
-      text-align:justify;
-    }
-    .founder{
-      margin-top:30px;
-      font-style:italic;
-      text-align:center;
-      font-size:16px;
-      color:var(--accent);
-    }
-    .site-footer{
-      text-align:center;
-      padding:12px;
-      border-top:1px solid #dfe8ff;
-      color:#cccccc;
-      margin-top:40px;
-    }
-    @media (max-width:600px){
-      .site-header{flex-direction:column;text-align:center;}
-      .logo-side{display:none;}
-    }
+    :root{--bg:#ffffff;--accent:#1e3a8a;--gold:#d4af37;--muted:#f3f6ff;--text:#1e3a8a}
+    body{margin:0;font-family:Arial, Helvetica, sans-serif;color:var(--text);background:var(--bg)}
+    .site-header{display:flex;align-items:center;gap:18px;padding:20px;border-bottom:1px solid #eef2ff}
+    .logo-side{flex:0 0 100px;display:flex;align-items:center;justify-content:center}
+    .title-area{text-align:center}
+    .title-area h1{margin:0;font-size:22px}
+    .title-area .gold{color:var(--gold);font-weight:700}
+    .main-nav{margin-top:8px;display:flex;gap:8px;justify-content:center}
+    .nav-btn{padding:6px 10px;text-decoration:none;border-radius:8px;color:var(--accent);border:2px solid transparent;font-weight:600}
+    .sobre-section{padding:60px 20px; max-width:900px; margin:auto; text-align:center;}
+    .sobre-section h2{font-size:28px; color:var(--accent); margin-bottom:20px;}
+    .sobre-section p{font-size:18px; line-height:1.8; color:#000;}
+    .site-footer{text-align:center;padding:12px;border-top:1px solid #eef2ff;color:#55606b}
   </style>
 </head>
 <body>
@@ -93,8 +27,8 @@
       <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="86" height="86">
         <defs>
           <linearGradient id="g1" x1="0" x2="1">
-            <stop offset="0%" stop-color="#1e3a8a" />
-            <stop offset="100%" stop-color="#3b6bd6" />
+            <stop offset="0%" stop-color="#1e3a8a"/>
+            <stop offset="100%" stop-color="#3b6bd6"/>
           </linearGradient>
         </defs>
         <rect x="6" y="6" width="188" height="188" rx="18" fill="#fff" stroke="#d4af37" stroke-width="6"/>
@@ -113,30 +47,24 @@
       <nav class="main-nav">
         <a class="nav-btn" href="index.html">Home</a>
         <a class="nav-btn" href="sobre.html">Sobre</a>
-        <a class="nav-btn" href="#produtos">Produtos</a>
-        <a class="nav-btn" href="#">Contato</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="sobre-intro">
+    <section class="sobre-section">
       <h2>Sobre Nós</h2>
       <p>
-        Fundada em 2025 por Josué Archetti, a Tecelagem Fios De Ouro nasceu da paixão por transformar fios em histórias. 
-        Nossa missão é unir tradição e inovação, criando tecidos que não apenas vestem, mas inspiram. Cada trama reflete 
-        dedicação, excelência e o compromisso com a qualidade, desde o primeiro fio até o toque final.
+        Fundada em 2025 por <strong>Josué Archetti</strong>, a Tecelagem Fios De Ouro nasceu com o propósito de unir tradição e inovação no universo têxtil. Cada fio produzido carrega dedicação, tecnologia e paixão por criar tecidos que inspiram histórias.
       </p>
       <p>
-        Acreditamos que a tecnologia pode coexistir com a arte da tecelagem, oferecendo produtos inteligentes, 
-        duráveis e sofisticados. Nossos tecidos contam histórias, conectam pessoas e elevam experiências.
+        Nosso compromisso é com a qualidade, a criatividade e a excelência, sempre olhando para o futuro, mas mantendo a essência artesanal que nos define. Na Fios De Ouro, cada projeto é uma obra de arte e cada cliente é parte da nossa história.
       </p>
-      <p class="founder">— Josué Archetti, Fundador</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2025 Tecelagem Fios De Ouro — Preview</p>
+    <p>© 2025 Tecelagem Fios De Ouro — Todos os direitos reservados</p>
   </footer>
 </body>
 </html>

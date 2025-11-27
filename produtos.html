@@ -6,11 +6,14 @@
   <title>Tecelagem Fios De Ouro - Produtos</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    :root{--accent:#1e3a8a;--gold:#d4af37}
-    body{font-family:Arial, Helvetica, sans-serif;margin:20px;color:#1e3a8a}
-    .main-nav{display:flex;gap:10px;margin-bottom:30px}
-    .nav-btn{text-decoration:none;padding:6px 12px;border-radius:8px;
-      border:2px solid #1e3a8a;color:#1e3a8a;font-weight:600}
+    body{font-family:Arial, Helvetica, sans-serif; margin:20px; color:#1e3a8a; background:#fff;}
+    .main-nav{display:flex; gap:10px; margin-bottom:30px;}
+    .nav-btn{text-decoration:none;padding:6px 12px;border-radius:8px;border:2px solid #1e3a8a;color:#1e3a8a;font-weight:600;}
+    .produtos-container{max-width:900px; margin:auto; display:flex; flex-direction:column; gap:30px;}
+    .produto{display:flex; align-items:center; gap:20px;}
+    .produto img{width:64px;height:64px;}
+    .produto h3{margin:0; font-size:22px; color:#1e3a8a;}
+    .produto p{margin:5px 0 0; font-size:16px; color:#000;}
   </style>
 </head>
 <body>
@@ -22,13 +25,8 @@
 
   <h2 style="font-size:28px; text-align:center; margin-bottom:30px;">Produtos</h2>
 
-  <!-- Aqui vai exatamente a parte dos produtos -->
-  <section style="max-width:900px; margin:auto; display:flex; flex-direction:column; gap:30px;">
+  <section class="produtos-container">
 
-    <!-- Cole aqui todos os blocos de produtos exatamente como estavam -->
-    <!-- Nanotecnologia, Flame, Esportivos, Outros ... -->
-
-  </section>
-
-</body>
-</html>
+    <!-- Nanotecnologia -->
+    <div class="produto">
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxjaXJjbGUgY3g9IjY0IiBjeT0iNjQiIHI9IjU2IiBmaWxsPSIjZGNlNWZmIiBzdHJva2U9IiMxZTNBOEEiIHN0cm9rZS13aWR0aD0iOCIvPgogIDxjaXJjbGUgY3g9IjY0IiBjeT0iMzAiIHI9IjEwIiBmaWxsPSIjMWUzYThhIi8+CiAgPGNpcmNsZSBjeD0iMjgiIGN5PSI3MCIgcj0iOCIgZmlsbD0iIzFlM2E4YSIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjcwIiByPSI4IiBmaWxsPSIjMWUzYTh
